@@ -1,17 +1,13 @@
+import { type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
 import { cn } from "../utils/cn";
+import { inputVariants } from "./inputVariants";
 
-type Props = ComponentProps<"input">;
+interface InputProps extends ComponentProps<"input">, VariantProps<typeof inputVariants> {}
 
-function Input({ className, ...props }: Props) {
+function Input({ ref, className, variant, type = "text", ...props }: InputProps) {
   return (
-    <input
-      className={cn(
-        "border-input placeholder:text-muted-foreground focus:ring-accent w-fit rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm focus:outline-none focus:ring-1 sm:text-sm",
-        className
-      )}
-      {...props}
-    />
+    <input className={cn(inputVariants({ variant, className }))} ref={ref} type={type} {...props} />
   );
 }
 
