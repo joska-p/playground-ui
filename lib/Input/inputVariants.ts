@@ -1,24 +1,22 @@
 import { cva } from "class-variance-authority";
 
 export const inputVariants = cva(
-  "w-fit rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-accent sm:text-sm",
+  "flex h-10 w-full rounded-md border border-input px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
   {
     variants: {
       variant: {
+        default:
+          "bg-background text-foreground file:text-foreground/80 placeholder:text-foreground/80",
         primary:
-          "bg-primary text-primary-foreground placeholder:text-primary-foreground/80 hover:bg-primary/80",
-        secondary:
-          "bg-secondary text-secondary-foreground placeholder:text-secondary-foreground hover:bg-secondary/80",
-        mutted:
-          "bg-mutted text-mutted-foreground hover:bg-mutted/80 placeholder:text-mutted-foreground",
-        accent:
-          "bg-accent text-accent-foreground placeholder:text-accent-foreground hover:bg-accent/80",
+          "bg-primary text-primary-foreground file:text-primary-foreground/80 placeholder:text-primary-foreground/80",
         destructive:
-          "bg-destructive text-destructive-foreground placeholder:text-destructive-foreground hover:bg-destructive/80",
+          "bg-destructive text-destructive-foreground file:text-destructive-foreground/80 placeholder:text-destructive-foreground/80",
+        secondary:
+          "bg-secondary text-secondary-foreground file:text-secondary-foreground/80 placeholder:text-secondary-foreground",
       },
     },
     defaultVariants: {
-      variant: "primary",
+      variant: "default",
     },
   }
 );
