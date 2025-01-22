@@ -1,4 +1,4 @@
-import { withThemeByClassName } from "@storybook/addon-themes";
+import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react";
 import "../lib/playground-ui.css";
 
@@ -11,16 +11,17 @@ const preview: Preview = {
       },
     },
   },
-
-  decorators: [
-    withThemeByClassName({
-      themes: {
-        light: "",
-        dark: "dark",
-      },
-      defaultTheme: "dark",
-    }),
-  ],
 };
+
+export const decorators = [
+  withThemeByDataAttribute({
+    themes: {
+      light: "light",
+      dark: "dark",
+    },
+    defaultTheme: "light",
+    attributeName: "data-mode",
+  }),
+];
 
 export default preview;
