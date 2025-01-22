@@ -7,9 +7,7 @@ describe(`Component: ${Button.name}`, () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <button
-          class="bg-red-700"
-        >
+        <button>
           My button
         </button>
       </div>
