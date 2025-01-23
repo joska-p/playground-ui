@@ -1,6 +1,6 @@
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react";
-import "../lib/playground-ui.css";
+import "../lib/index.css";
 
 const preview: Preview = {
   parameters: {

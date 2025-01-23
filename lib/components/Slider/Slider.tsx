@@ -1,6 +1,6 @@
 import type { VariantProps } from "class-variance-authority";
 import { useState } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 import { sliderVariants } from "./sliderVariants";
 
 interface SliderProps extends VariantProps<typeof sliderVariants> {
