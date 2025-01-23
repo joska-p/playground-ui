@@ -5,9 +5,6 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "paths": {
-      "playground-ui": ["./lib/main.ts"]
-    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -15,6 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "declaration": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -22,6 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["lib/*"]
+    },
+    "outDir": "dist",
 
     /* Vitest */
     "types": ["vitest/globals"]
