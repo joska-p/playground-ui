@@ -45,5 +45,10 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./lib/test/setup.ts",
     css: true,
+    coverage: {
+      reporter: ["text", "json", "html"],
+      include: ["lib/**/*.{ts,tsx}"],
+      exclude: ["lib/**/*.stories.{ts,tsx}", "lib/**/*.test.{ts,tsx}", "lib/main.ts"],
+    },
   },
 });

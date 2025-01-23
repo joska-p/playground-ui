@@ -1,40 +1,56 @@
-import type { ComponentProps } from "react";
+import type { VariantProps } from "class-variance-authority";
+import { useState } from "react";
 import { cn } from "../utils/cn";
-import styles from "./Slider.module.css";
+import { sliderVariants } from "./sliderVariants";
 
-type LabelProps = ComponentProps<"label">;
-type InputProps = ComponentProps<"input">;
+interface SliderProps extends VariantProps<typeof sliderVariants> {
+  ref?: React.Ref<HTMLInputElement>;
+  min: number;
+  max: number;
+  step: number;
+  value: number;
+  onChange: (value: number) => void;
+  className?: string;
+  label?: string;
+  ariaLabel?: string;
+}
 
-const Label = ({ children, className, ...props }: LabelProps) => {
+function Slider({
+  ref,
+  min,
+  max,
+  step,
+  value,
+  onChange,
+  className,
+  variant,
+  label,
+  ariaLabel,
+}: SliderProps) {
+  const [sliderValue, setSliderValue] = useState(value);
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const newValue = parseFloat(event.target.value);
+    setSliderValue(newValue);
+    onChange(newValue);
+  }
+
   return (
-    <label
-      className={cn("flex w-fit cursor-pointer flex-col items-center text-sm", className)}
-      {...props}
-    >
-      {children}
+    <label className={"flex cursor-pointer flex-col items-center text-sm md:text-base"}>
+      <input
+        aria-label={ariaLabel}
+        ref={ref}
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={sliderValue}
+        onChange={handleChange}
+        className={cn(sliderVariants({ variant, className }))}
+      />
+      <span className="slider-value">{label ? `${label}: ${sliderValue}` : sliderValue}</span>
     </label>
   );
-};
+}
 
-const Input = ({ ref, min, step, max, value, onChange, className, ...props }: InputProps) => {
-  return (
-    <input
-      ref={ref}
-      type="range"
-      min={min}
-      step={step}
-      max={max}
-      value={value}
-      onChange={onChange}
-      className={cn(
-        "bg-foreground/50 my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-none",
-        "focus-visible:ring-accent focus-visible:ring-2",
-        styles.slider,
-        className
-      )}
-      {...props}
-    />
-  );
-};
-
-export const Slider = { Label, Input };
+export { Slider };
