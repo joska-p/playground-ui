@@ -1,15 +1,10 @@
 /// <reference types="vitest" />
 import { resolve } from "path";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
-import tsconfigPaths from "vite-tsconfig-paths";
-
-const ReactCompilerConfig = {
-  /* ... */
-};
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -35,16 +30,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [
-    react({
-      babel: {
-        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
-      },
-    }),
-    dts({ rollupTypes: true, include: ["lib"] }),
-    tsconfigPaths(),
-    cssInjectedByJsPlugin(),
-  ],
+  plugins: [react(), dts({ rollupTypes: true }), cssInjectedByJsPlugin()],
   test: {
     globals: true,
     environment: "jsdom",
