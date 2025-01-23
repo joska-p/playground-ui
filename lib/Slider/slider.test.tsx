@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { Slider } from "./Slider";
 
 describe(`Component: ${Slider.name}`, () => {
@@ -37,5 +37,24 @@ describe(`Component: ${Slider.name}`, () => {
         </label>
       </div>
     `);
+  });
+
+  it("should update the value when the user changes the range", () => {
+    const handleChange = vi.fn();
+    const { getByRole } = render(
+      <Slider
+        label="My Label"
+        ariaLabel="My Label"
+        min={0}
+        max={100}
+        step={1}
+        value={50}
+        onChange={handleChange}
+      />
+    );
+
+    const rangeInput = getByRole("slider");
+    fireEvent.change(rangeInput, { target: { value: 30 } });
+    expect(handleChange).toHaveBeenCalledWith(30);
   });
 });
