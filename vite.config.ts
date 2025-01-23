@@ -18,14 +18,13 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
-    dts({ rollupTypes: true }),
+    dts({ rollupTypes: true, include: ["lib"] }),
   ],
   build: {
     // library entry and output settings
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
-      name: "playground-ui",
-      fileName: "playground-ui",
+      formats: ["es"],
     },
     // bundler options
     // externalize react-related imports
@@ -37,6 +36,8 @@ export default defineConfig({
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "react/jsx-runtime",
         },
+        assetFileNames: "assets/[name][extname]",
+        entryFileNames: "[name].js",
       },
     },
   },
