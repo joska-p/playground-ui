@@ -5,8 +5,8 @@ export const sliderVariants = cva(
   {
     variants: {
       variant: {
-        outline: "border border-input bg-background",
         default: "bg-primary text-primary-foreground",
+        outline: "border border-input bg-background",
         destructive: "bg-destructive text-destructive-foreground",
         secondary: "bg-secondary text-secondary-foreground",
       },

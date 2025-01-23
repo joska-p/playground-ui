@@ -7,6 +7,7 @@ describe(`Component: ${Slider.name}`, () => {
       <Slider
         label="My Label"
         ariaLabel="My Label"
+        variant="default"
         min={0}
         max={100}
         step={1}
@@ -39,7 +40,7 @@ describe(`Component: ${Slider.name}`, () => {
     `);
   });
 
-  it("should update the value when the user changes the range", () => {
+  it("should update call the onChange function with the new value", () => {
     const handleChange = vi.fn();
     const { getByRole } = render(
       <Slider
@@ -56,5 +57,23 @@ describe(`Component: ${Slider.name}`, () => {
     const rangeInput = getByRole("slider");
     fireEvent.change(rangeInput, { target: { value: 30 } });
     expect(handleChange).toHaveBeenCalledWith(30);
+  });
+
+  it("should update the value on the screen", () => {
+    const { getByRole, getByText } = render(
+      <Slider
+        ariaLabel="My Label"
+        min={0}
+        max={100}
+        step={1}
+        value={50}
+        onChange={(value) => console.log(value)}
+      />
+    );
+    const rangeInput = getByRole("slider");
+    fireEvent.change(rangeInput, { target: { value: 30 } });
+
+    const sliderValue = getByText("30");
+    expect(sliderValue).toBeInTheDocument();
   });
 });
