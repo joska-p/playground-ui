@@ -3,7 +3,7 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+//import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
 
 const ReactCompilerConfig = {
@@ -28,6 +28,8 @@ export default defineConfig({
           "react/jsx-runtime": "jsxRuntime",
           tailwindcss: "tailwindcss",
         },
+        assetFileNames: "assets/[name][extname]",
+        entryFileNames: "[name].js",
       },
     },
     sourcemap: true,
@@ -40,7 +42,7 @@ export default defineConfig({
       },
     }),
     dts({ rollupTypes: true }),
-    cssInjectedByJsPlugin(),
+    //cssInjectedByJsPlugin(),
   ],
   test: {
     globals: true,
