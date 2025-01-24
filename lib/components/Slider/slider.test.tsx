@@ -21,20 +21,20 @@ describe(`Component: ${Slider.name}`, () => {
         <label
           class="flex cursor-pointer flex-col items-center text-sm md:text-base"
         >
+          <span
+            class="slider-value"
+          >
+            My Label: 50
+          </span>
           <input
             aria-label="My Label"
-            class="slider my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-hidden focus-visible:ring-2 focus-visible:ring-accent bg-primary text-primary-foreground"
+            class="slider focus-visible:ring-accent my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-hidden focus-visible:ring-2 bg-primary text-primary-foreground"
             max="100"
             min="0"
             step="1"
             type="range"
             value="50"
           />
-          <span
-            class="slider-value"
-          >
-            My Label: 50
-          </span>
         </label>
       </div>
     `);
