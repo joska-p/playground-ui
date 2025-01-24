@@ -23,7 +23,7 @@ describe(`Component: ${Slider.name}`, () => {
         >
           <input
             aria-label="My Label"
-            class="slider my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-accent bg-primary text-primary-foreground"
+            class="slider my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-hidden focus-visible:ring-2 focus-visible:ring-accent bg-primary text-primary-foreground"
             max="100"
             min="0"
             step="1"

@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const sliderVariants = cva(
-  "slider my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-accent",
+  "slider my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-hidden focus-visible:ring-2 focus-visible:ring-accent",
   {
     variants: {
       variant: {

@@ -37,6 +37,7 @@ function Slider({
 
   return (
     <label className={"flex cursor-pointer flex-col items-center text-sm md:text-base"}>
+      <span className="slider-value">{label ? `${label}: ${sliderValue}` : sliderValue}</span>
       <input
         aria-label={ariaLabel}
         ref={ref}
@@ -48,7 +49,6 @@ function Slider({
         onChange={handleChange}
         className={cn(sliderVariants({ variant, className }))}
       />
-      <span className="slider-value">{label ? `${label}: ${sliderValue}` : sliderValue}</span>
     </label>
   );
 }

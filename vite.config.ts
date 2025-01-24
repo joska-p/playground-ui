@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { resolve } from "path";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
@@ -38,6 +38,7 @@ export default defineConfig({
       },
     }),
     dts({ rollupTypes: true }),
+    tailwindcss(),
   ],
   test: {
     globals: true,
@@ -53,11 +54,6 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve(__dirname, "lib"),
-    },
-  },
-  css: {
-    postcss: {
-      plugins: [tailwindcss],
     },
   },
 });
