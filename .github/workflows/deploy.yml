@@ -17,11 +17,13 @@ jobs:
         with:
           node-version: "23"
 
+      - uses: pnpm/action-setup@v4
+
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build
-        run: npm run build-storybook
+        run: pnpm run build-storybook
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
