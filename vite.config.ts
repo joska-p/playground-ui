@@ -1,9 +1,7 @@
 /// <reference types="vitest" />
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
-//import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
 
 const ReactCompilerConfig = {
@@ -15,9 +13,9 @@ export default defineConfig({
   build: {
     // library entry and output settings
     lib: {
-      entry: resolve(__dirname, "lib/index.ts"),
-      name: "Playground-ui",
-      fileName: (format) => `index.${format}.js`,
+      entry: resolve(__dirname, "lib/main.ts"),
+      name: "playground-ui",
+      fileName: "playground-ui",
     },
     rollupOptions: {
       external: ["react", "react-dom", "tailwindcss"],
@@ -26,10 +24,7 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "jsxRuntime",
-          tailwindcss: "tailwindcss",
         },
-        assetFileNames: "assets/[name][extname]",
-        entryFileNames: "[name].js",
       },
     },
     sourcemap: true,
@@ -42,7 +37,6 @@ export default defineConfig({
       },
     }),
     dts({ rollupTypes: true }),
-    //cssInjectedByJsPlugin(),
   ],
   test: {
     globals: true,
@@ -58,11 +52,6 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve(__dirname, "lib"),
-    },
-  },
-  css: {
-    postcss: {
-      plugins: [tailwindcss],
     },
   },
 });

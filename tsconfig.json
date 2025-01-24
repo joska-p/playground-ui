@@ -22,7 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["lib/*"]
+      "playground-ui": ["./lib/main.ts"]
     },
     "outDir": "dist",
 
