@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is([data-mode="dark"] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
   --color-border: hsl(var(--border));
@@ -35,7 +35,7 @@
 }
 
 @layer base {
-  html[data-mode="light"],
+  html[data-theme="light"],
   html.light {
     --border: 35 17% 58%;
     --input: 52 73% 90%;
@@ -65,7 +65,7 @@
   }
 
   :root,
-  html[data-mode="dark"],
+  html[data-theme="dark"],
   html.dark {
     --border: 21 7% 29%;
     --input: 20 5% 22%;
@@ -97,14 +97,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  .slider::-webkit-slider-thumb,
+  .slider::-moz-range-thumb {
+    @apply bg-primary outline-primary ring-background h-4 w-4 rounded-full ring-2 outline-2 outline-offset-2;
+  }
+}
+
+@layer utilities {
   .grid-stack {
     @apply grid [grid-template-areas:'stack'];
   }
   .grid-stack > * {
     @apply [grid-area:stack];
-  }
-  .slider::-webkit-slider-thumb,
-  .slider::-moz-range-thumb {
-    @apply bg-primary outline-primary ring-background h-4 w-4 rounded-full ring-2 outline-2 outline-offset-2;
   }
 }
