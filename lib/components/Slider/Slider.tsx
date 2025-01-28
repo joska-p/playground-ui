@@ -3,7 +3,7 @@ import { useState } from "react";
 import { cn } from "../../utils/cn";
 import { sliderVariants } from "./sliderVariants";
 
-interface SliderProps extends VariantProps<typeof sliderVariants> {
+export interface SliderProps extends VariantProps<typeof sliderVariants> {
   ref?: React.Ref<HTMLInputElement>;
   min: number;
   max: number;
@@ -15,7 +15,7 @@ interface SliderProps extends VariantProps<typeof sliderVariants> {
   ariaLabel?: string;
 }
 
-function Slider({
+export function Slider({
   ref,
   min,
   max,
@@ -36,8 +36,10 @@ function Slider({
   }
 
   return (
-    <label className={"flex cursor-pointer flex-col items-center text-sm md:text-base"}>
-      <span className="slider-value">{label ? `${label}: ${sliderValue}` : sliderValue}</span>
+    <label
+      className={"ui:flex ui:cursor-pointer ui:flex-col ui:items-center ui:text-sm ui:md:text-base"}
+    >
+      <span>{label ? `${label}: ${sliderValue}` : sliderValue}</span>
       <input
         aria-label={ariaLabel}
         ref={ref}
@@ -52,5 +54,3 @@ function Slider({
     </label>
   );
 }
-
-export { Slider };

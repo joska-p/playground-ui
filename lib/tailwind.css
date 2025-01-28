@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" prefix(ui);
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -95,22 +95,22 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply ui:bg-background ui:text-foreground;
   }
 }
 
 @layer components {
   .slider::-webkit-slider-thumb,
   .slider::-moz-range-thumb {
-    @apply bg-primary outline-primary ring-background h-4 w-4 rounded-full ring-2 outline-2 outline-offset-2;
+    @apply ui:bg-primary ui:outline-primary ui:ring-background ui:h-4 ui:w-4 ui:rounded-full ui:ring-2 ui:outline-2 ui:outline-offset-2;
   }
 }
 
 @layer utilities {
   .grid-stack {
-    @apply grid [grid-template-areas:'stack'];
+    @apply ui:grid ui:[grid-template-areas:'stack'];
   }
   .grid-stack > * {
-    @apply [grid-area:stack];
+    @apply ui:[grid-area:stack];
   }
 }

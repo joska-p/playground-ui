@@ -1,15 +1,16 @@
 import { cva } from "class-variance-authority";
 
 export const labelVariants = cva(
-  "ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md px-3 py-2 text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+  "ui:ring-offset-background ui:focus-visible:ring-ring ui:flex ui:rounded-md ui:px-3 ui:py-2 ui:text-sm ui:leading-none ui:font-medium ui:peer-disabled:cursor-not-allowed ui:peer-disabled:opacity-70 ui:focus-visible:ring-2 ui:focus-visible:ring-offset-2 ui:focus-visible:outline-hidden ui:disabled:cursor-not-allowed ui:disabled:opacity-50 ui:md:text-sm h-10",
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground",
-        outline: "border-input bg-background hover:bg-accent hover:text-accent-foreground border",
-        primary: "bg-primary text-primary-foreground",
-        destructive: "bg-destructive text-destructive-foreground",
-        secondary: "bg-secondary text-secondary-foreground",
+        default: "ui:bg-background ui:text-foreground",
+        outline:
+          "ui:border-input ui:bg-background ui:hover:bg-accent ui:hover:text-accent-foreground border",
+        primary: "ui:bg-primary ui:text-primary-foreground",
+        destructive: "ui:bg-destructive ui:text-destructive-foreground",
+        secondary: "ui:bg-secondary ui:text-secondary-foreground",
       },
     },
     defaultVariants: {
