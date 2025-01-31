@@ -8,7 +8,7 @@ describe(`Component: ${Button.name}`, () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <button
-          class="ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap shadow-md transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+          class="ui:ring-offset-background ui:focus-visible:ring-ring ui:inline-flex ui:items-center ui:justify-center ui:gap-2 ui:rounded-md ui:text-sm ui:font-medium ui:whitespace-nowrap ui:shadow-md ui:transition-colors ui:focus-visible:ring-2 ui:focus-visible:ring-offset-2 ui:focus-visible:outline-hidden ui:disabled:pointer-events-none ui:disabled:opacity-50 ui:bg-primary ui:text-primary-foreground ui:hover:bg-primary/90 ui:h-10 ui:px-4 ui:py-2"
           type="button"
         >
           My button

@@ -1,8 +1,10 @@
 import { fireEvent, render } from "@testing-library/react";
+import { vi } from "vitest";
 import { Slider } from "./Slider";
 
 describe(`Component: ${Slider.name}`, () => {
   it("should render", () => {
+    const handleChange = vi.fn();
     const { container } = render(
       <Slider
         label="My Label"
@@ -12,23 +14,21 @@ describe(`Component: ${Slider.name}`, () => {
         max={100}
         step={1}
         value={50}
-        onChange={(value) => console.log(value)}
+        onChange={handleChange}
       />
     );
 
     expect(container).toMatchInlineSnapshot(`
       <div>
         <label
-          class="flex cursor-pointer flex-col items-center text-sm md:text-base"
+          class="ui:flex ui:cursor-pointer ui:flex-col ui:items-center ui:text-sm ui:md:text-base"
         >
-          <span
-            class="slider-value"
-          >
+          <span>
             My Label: 50
           </span>
           <input
             aria-label="My Label"
-            class="slider focus-visible:ring-accent my-4 h-2 w-full cursor-pointer appearance-none rounded-lg outline-hidden focus-visible:ring-2 bg-primary text-primary-foreground"
+            class="slider ui:my-4 ui:h-2 ui:w-full ui:cursor-pointer ui:appearance-none ui:rounded-lg ui:bg-primary ui:text-primary"
             max="100"
             min="0"
             step="1"
@@ -60,15 +60,9 @@ describe(`Component: ${Slider.name}`, () => {
   });
 
   it("should update the value on the screen", () => {
+    const handleChange = vi.fn();
     const { getByRole, getByText } = render(
-      <Slider
-        ariaLabel="My Label"
-        min={0}
-        max={100}
-        step={1}
-        value={50}
-        onChange={(value) => console.log(value)}
-      />
+      <Slider ariaLabel="My Label" min={0} max={100} step={1} value={50} onChange={handleChange} />
     );
     const rangeInput = getByRole("slider");
     fireEvent.change(rangeInput, { target: { value: 30 } });

@@ -6,8 +6,7 @@ export const labelVariants = cva(
     variants: {
       variant: {
         default: "ui:bg-background ui:text-foreground",
-        outline:
-          "ui:border-input ui:bg-background ui:hover:bg-accent ui:hover:text-accent-foreground border",
+        outline: "ui:border-border ui:bg-background ui:border",
         primary: "ui:bg-primary ui:text-primary-foreground",
         destructive: "ui:bg-destructive ui:text-destructive-foreground",
         secondary: "ui:bg-secondary ui:text-secondary-foreground",

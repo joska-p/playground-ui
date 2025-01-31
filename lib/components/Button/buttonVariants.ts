@@ -8,7 +8,7 @@ export const buttonVariants = cva(
         default: "ui:bg-primary ui:text-primary-foreground ui:hover:bg-primary/90",
         destructive: "ui:bg-destructive ui:text-destructive-foreground ui:hover:bg-destructive/90",
         outline:
-          "ui:border-input ui:bg-background ui:hover:bg-accent ui:hover:text-accent-foreground border",
+          "ui:border-border ui:bg-background ui:hover:bg-accent ui:hover:text-accent-foreground ui:border",
         secondary: "ui:bg-secondary ui:text-secondary-foreground ui:hover:bg-secondary/80",
         ghost: "ui:hover:bg-accent ui:hover:text-accent-foreground",
         link: "ui:text-primary ui:underline-offset-4 ui:hover:underline",

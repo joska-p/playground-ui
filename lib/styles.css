@@ -35,35 +35,6 @@
 }
 
 @layer base {
-  html[data-theme="light"],
-  html.light {
-    --border: 35 17% 58%;
-    --input: 52 73% 90%;
-    --ring: 38 100% 50%;
-    --card: 48 86% 88%;
-    --card-foreground: 20 5% 22%;
-    --popover: 52 73% 90%;
-    --background: 43 58% 80%;
-    --foreground: 21 7% 29%;
-
-    --primary: 189 88% 24%;
-    --primary-foreground: 43 58% 80%;
-
-    --secondary: 58 70% 34%;
-    --secondary-foreground: 48 86% 88%;
-
-    --muted: 43 58% 80%;
-    --muted-foreground: 26 9% 36%;
-
-    --accent: 332 33% 53%;
-    --accent-foreground: 20 3% 19%;
-
-    --destructive: 2 75% 45%;
-    --destructive-foreground: 52 73% 90%;
-
-    --radius: 0.5rem;
-  }
-
   :root,
   html[data-theme="dark"],
   html.dark {
@@ -94,6 +65,35 @@
     --radius: 0.5rem;
   }
 
+  html[data-theme="light"],
+  html.light {
+    --border: 35 17% 58%;
+    --input: 52 73% 90%;
+    --ring: 38 100% 50%;
+    --card: 48 86% 88%;
+    --card-foreground: 20 5% 22%;
+    --popover: 52 73% 90%;
+    --background: 43 58% 80%;
+    --foreground: 21 7% 29%;
+
+    --primary: 189 88% 24%;
+    --primary-foreground: 43 58% 80%;
+
+    --secondary: 58 70% 34%;
+    --secondary-foreground: 48 86% 88%;
+
+    --muted: 43 58% 80%;
+    --muted-foreground: 26 9% 36%;
+
+    --accent: 332 33% 53%;
+    --accent-foreground: 20 3% 19%;
+
+    --destructive: 2 75% 45%;
+    --destructive-foreground: 52 73% 90%;
+
+    --radius: 0.5rem;
+  }
+
   body {
     @apply ui:bg-background ui:text-foreground;
   }
@@ -102,7 +102,7 @@
 @layer components {
   .slider::-webkit-slider-thumb,
   .slider::-moz-range-thumb {
-    @apply ui:bg-primary ui:outline-primary ui:ring-background ui:h-4 ui:w-4 ui:rounded-full ui:ring-2 ui:outline-2 ui:outline-offset-2;
+    @apply ui:bg-inherit ui:h-4 ui:w-4 ui:outline-inherit ui:outline-2 ui:outline-offset-0 ui:rounded-full ui:border-background ui:border-2 ui:cursor-pointer;
   }
 }
 
